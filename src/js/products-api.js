@@ -10,7 +10,7 @@ export const fetchCategories = async () => {
 
 export const fetchProducts = async (page) => {
     const skip = (page - 1) * ITEMS_PER_PAGE;
-    const { data } = await axios.get(`${ENDPOINTS.PRODUCTS}?limit=${ITEMS_PER_PAGE}&skip=${skip}`);
+    const { data } = await axios(`${ENDPOINTS.PRODUCTS}?limit=${ITEMS_PER_PAGE}&skip=${skip}`);
     return data;
     
 };
@@ -18,4 +18,10 @@ export const fetchProducts = async (page) => {
 export const fetchByCategory = async (category) => {
   const { data } = await axios(`${ENDPOINTS.PRODUCTS_BY_CATEGORY}/${category}`);
   return data;
-}
+};
+
+export const fetchModal = async (id) => {
+  const { data } = await axios(`${ENDPOINTS.PRODUCTS_BY_ID}/${id}`);
+  return data;
+};
+
