@@ -12,3 +12,9 @@ export const activeFirstBtn = () => {
   //     }
   //   });
 };
+// 6. Підсвітка активної категорії ===
+
+export const highlightActiveCategory = (activeButton) => {
+  document.querySelectorAll('.categories__btn').forEach(btn => btn.classList.remove('categories__btn--active'));
+  activeButton.classList.add('categories__btn--active');
+};
