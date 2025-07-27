@@ -1,5 +1,5 @@
-import { activeFirstBtn } from './helpers';
-import { fetchCategories, fetchProducts, fetchProductById, fetchByCategory  } from './products-api';
+import { activeFirstBtn, highlightActiveCategory } from './helpers';
+import { fetchCategories, fetchProducts,  fetchByCategory  } from './products-api';
 import { renderCategories, renderProducts, renderEmptyMessage } from './render-function';
 import { refs } from './refs.js';
 import iziToast from 'izitoast';
@@ -28,7 +28,8 @@ export const getProducts = async () => {
 
 //  Клік по категорії ===
 export const handleCategoryClick = async (e) => {
-  if (!e.target.classList.contains('category-btn')) return;
+  console.log(e.target);
+  if (!e.target.classList.contains('categories__btn')) return;
 
   const currentCategory = e.target.textContent;
  
@@ -39,17 +40,13 @@ export const handleCategoryClick = async (e) => {
     renderProducts(data.products);
 
     // toggleLoadMoreButton(data.products.length);
-    // highlightActiveCategory(e.target);
+    highlightActiveCategory(e.target);
   } catch (err) {
     iziToast.error({ title: 'Error', message: err.message });
   }
 };
 
 
-// 6. Підсвітка активної категорії ===
-const highlightActiveCategory = (activeButton) => {
-  document.querySelectorAll('.category-btn').forEach(btn => btn.classList.remove('categories__btn--active'));
-  activeButton.classList.add('categories__btn--active');
-};
+
 
 
