@@ -14,3 +14,8 @@ export const fetchProducts = async (page) => {
     return data;
     
 };
+
+export const fetchByCategory = async (category) => {
+  const { data } = await axios(`${ENDPOINTS.PRODUCTS_BY_CATEGORY}/${category}`);
+  return data;
+}

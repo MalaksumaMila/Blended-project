@@ -26,3 +26,7 @@ export const renderProducts = (products) => {
 
     refs.productsList.insertAdjacentHTML("beforeend", markup);
 }
+
+export const renderEmptyMessage = (container, message) => {
+  container.innerHTML = `<p class="empty-message">${message}</p>`;
+};
