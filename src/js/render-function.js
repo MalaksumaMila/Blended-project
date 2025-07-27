@@ -26,3 +26,7 @@ export const renderProducts = (products) => {
 
     refs.productsList.insertAdjacentHTML("beforeend", markup);
 }
+
+// export const renderModal = () => {
+//   const markup =>  
+// }
